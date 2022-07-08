@@ -6,7 +6,7 @@ namespace Project
 {
     public class HeightObserver : IDisposable, IMyTickable
     {
-        private float _maxHeight = -2f;
+        private float _maxHeight = 0;
         private float _currentHeight = 0;
         private int _platformsJumped = 0;
 

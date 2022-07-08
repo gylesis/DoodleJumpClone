@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Player;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -11,7 +10,7 @@ namespace Project.Platform
 {
     public class PlatformsSpawner : IInitializable, IDisposable
     {
-        private int _platformsAliveCount = 5;
+        private int _platformsAliveCount = 7;
 
         private readonly List<Platform> _alivePlatforms = new List<Platform>();
         private readonly Dictionary<int, Vector3> _platformsOriginPoses = new Dictionary<int, Vector3>();
@@ -33,7 +32,8 @@ namespace Project.Platform
             
             foreach (Platform platform in _platformsPool.Platforms)
             {
-                platform.PlatformJumped.Subscribe((RecyclePlatform)).AddTo(_compositeDisposable);
+                platform.ToRecycle.Subscribe((RecyclePlatform)).AddTo(_compositeDisposable);
+                
                 _heightObserver.Observe(platform);
                 _alivePlatforms.Remove(platform);
                 

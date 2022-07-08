@@ -25,8 +25,8 @@ namespace Project.Platform
         
         IEnumerator Move(Platform platform)
         {
-            var rightXBorder = _horizontalRestrictionService.RightDownWorld.x;
-            var leftXBorder = _horizontalRestrictionService.LeftDownWorld.x;
+            var rightXBorder = _horizontalRestrictionService.RightDownWorld.x - platform.transform.localScale.x ;
+            var leftXBorder = _horizontalRestrictionService.LeftDownWorld.x + platform.transform.localScale.x;
             
             while (true)
             {

@@ -38,8 +38,6 @@ namespace Project.Player
 
                 var atan2 = Mathf.Atan2(direction.y, direction.x);
 
-                Debug.Log($"angle {atan2 * Mathf.Rad2Deg}");
-                
                 if (atan2 < 0)
                 {
                     _playerController.Jump();

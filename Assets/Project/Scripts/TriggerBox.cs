@@ -14,8 +14,6 @@ namespace Project
             triggerEventContext.Other = other;
             triggerEventContext.Sender = this;
 
-            Debug.Log(other);
-            
             Triggered.OnNext(triggerEventContext);
         }
     }
